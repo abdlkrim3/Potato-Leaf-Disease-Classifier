@@ -123,3 +123,29 @@ project-root/
 └── ...
 ```
 
+### 📚 Custom Model Training
+
+If you want to **train the model on your own custom dataset**, please refer to the provided **notebook instructions** in training folder.
+
+- 📓 Open the Jupyter notebook located at:
+```
+ trainig/potato_disease_classification_model.ipynb
+```
+- The notebook walks you through:
+- Preparing your dataset (image folders and labels)
+- Preprocessing and augmentation
+- Building and training the TensorFlow/Keras model
+- Saving the trained model to use with the API
+
+✅ **Install the required tools** if you're working locally:
+```bash
+pip install notebook tensorflow
+jupyter notebook
+```
+🧠 **After training**, save your model as **custom_model.h5** or similar, and update the model path in your FastAPI backend **(api/main.py)**:
+
+```
+MODEL_PATH = "path/to/your/custom_model.h5"
+```
+
+🔁 **Restart the API** after updating the model path to start using your custom-trained model.
