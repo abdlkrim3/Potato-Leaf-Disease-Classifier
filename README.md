@@ -122,6 +122,7 @@ project-root/
 ├── README.md
 └── ...
 ```
+---
 
 ### 📚 Custom Model Training
 
