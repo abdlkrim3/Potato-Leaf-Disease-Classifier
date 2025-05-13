@@ -30,7 +30,7 @@ app.add_middleware(
 )
 
 # Model configuration
-MODEL_PATH = "C:/Users/lenovo/OneDrive/Desktop/potato_desais/potato-disease-classification/potatoes.h5"
+MODEL_PATH = "./training/model/potatoes.h5"
 IMAGE_SIZE = (256, 256)  # Update with your model's expected input size
 
 # Load model
