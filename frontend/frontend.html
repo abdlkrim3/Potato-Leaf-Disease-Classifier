@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Disease Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #preview {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .early-blight { background-color: #fff3cd; }
+        .late-blight { background-color: #f8d7da; }
+        .healthy { background-color: #d4edda; }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Potato Disease Classifier</h1>
+    <div class="upload-container">
+        <input type="file" id="fileInput" accept="image/*">
+        <button onclick="predict()">Analyze Potato Leaf</button>
+        <img id="preview" style="display: none;">
+    </div>
+    <div id="result" class="result" style="display: none;"></div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const resultDiv = document.getElementById('result');
+
+        // Show image preview when file is selected
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                preview.style.display = 'block';
+                preview.src = URL.createObjectURL(file);
+                resultDiv.style.display = 'none';
+            }
+        });
+
+        async function predict() {
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select an image first');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('http://localhost:8000/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                displayResult(data);
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        function displayResult(data) {
+            let resultClass = '';
+            if (data.prediction === 'Early Blight') resultClass = 'early-blight';
+            else if (data.prediction === 'Late Blight') resultClass = 'late-blight';
+            else resultClass = 'healthy';
+
+            resultDiv.className = `result ${resultClass}`;
+            resultDiv.innerHTML = `
+                <h2>Diagnosis: ${data.prediction}</h2>
+                <p>Confidence: ${(data.confidence * 100).toFixed(2)}%</p>
+                <h3>Detailed Probabilities:</h3>
+                <ul>
+                    ${Object.entries(data.class_probabilities)
+                        .map(([cls, prob]) => 
+                            `<li>${cls}: ${(prob * 100).toFixed(4)}%</li>`)
+                        .join('')}
+                </ul>
+                ${getAdviceHtml(data.prediction)}
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        function getAdviceHtml(disease) {
+            const advice = {
+                "Early Blight": "Recommended treatment: Apply fungicides containing chlorothalonil or copper. Remove infected leaves and improve air circulation.",
+                "Late Blight": "URGENT: Isolate and destroy infected plants. Use fungicides with active ingredients like mancozeb. Avoid overhead watering.",
+                "Healthy": "Your plant appears healthy! Maintain good practices: proper spacing, regular inspection, and balanced fertilization."
+            };
+            return `<div class="advice"><h3>Recommendation:</h3><p>${advice[disease]}</p></div>`;
+        }
+    </script>
+</body>
+</html>
