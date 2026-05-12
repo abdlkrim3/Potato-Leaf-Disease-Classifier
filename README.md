@@ -19,7 +19,7 @@ This project is a web-based AI tool that classifies potato leaf images into **Ea
 * **Image Selected**:
 ![Preview Screenshot](images/result.png)
 * **Result**:
-![Preview Screenshot](images.slectedImage.png)
+![Preview Screenshot](images/slectedImage.png)
 
 ## 🛠️ Setup Instructions
 
